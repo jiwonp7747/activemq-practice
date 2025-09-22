@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: queue-practice
+
+  activemq:
+    broker-url: tcp://localhost:31616
+    user: admin
+    password: 1234
+    packages:
+      trust-all: true
+    pool:
+      enabled: true
+      max-connections: 10
+    destination: "sample.queue"

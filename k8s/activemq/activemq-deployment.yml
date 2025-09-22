@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: activemq
+  labels:
+    app: activemq
+  namespace: queue
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: activemq
+  template:
+    metadata:
+      labels:
+        app: activemq
+    spec:
+      containers:
+        - name: activemq
+          image: rmohr/activemq:5.15.9   # 자주 쓰는 경량 ActiveMQ 이미지
+          ports:
+            - containerPort: 61616   # Broker 포트
+            - containerPort: 8161    # Web 콘솔 포트
+          env:
+            - name: ACTIVEMQ_ADMIN_LOGIN
+              value: "admin"
+            - name: ACTIVEMQ_ADMIN_PASSWORD
+              value: "1234"

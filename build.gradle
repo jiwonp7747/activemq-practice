@@ -24,6 +24,14 @@ dependencies {
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     // swagger 의존성
     implementation group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-ui', version: '2.8.4'
+
+    implementation 'org.springframework.boot:spring-boot-starter-activemq'
+    // 메시지 직렬화에 JSON 쓰려면
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
+
+    // lombok
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
 }
 
 tasks.named('test') {
